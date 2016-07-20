@@ -1,13 +1,23 @@
-organization := "com.rallyhealth"
-organizationName := "Rally Health"
 
-// set the scala version on the root project
-scalaVersion := "2.11.7"
+val commonRootSettings = Seq(
+  organization := "com.rallyhealth",
+  organizationName := "Rally Health",
+  
+  // set the scala version on the root project
+  scalaVersion := "2.11.7"
+)
 
-// don't publish the surrounding multi-project root
-publish := {}
+lazy val root = (project in file("."))
+  .settings(commonRootSettings)
+  .settings(
+    // don't publish the surrounding multi-project root
+    publish := {}
+  )
+  .aggregate(
+    `play23-test-ops-core`
+  )
 
-val commonSettings = Seq(
+val commonSettings = commonRootSettings ++ Seq(
 
   scalacOptions ++= Seq(
     "-encoding", "UTF-8",
@@ -35,14 +45,14 @@ val commonSettings = Seq(
   licenses += ("Apache-2.0", url("http://opensource.org/licenses/apache-2.0"))
 )
 
-lazy val `play23-test-ops` = (project in file("play23"))
+lazy val `play23-test-ops-core` = (project in file("play23-core"))
   .settings(commonSettings)
   .settings(
-    name := "play-test-ops",
-    version := "0.1.0",
+    name := "play23-test-ops-core",
     libraryDependencies ++= Seq(
       "com.typesafe.play" %% "play" % "2.3.10",
       "com.typesafe.play" %% "play-test" % "2.3.10" % "test",
       "org.scalatest" %% "scalatest" % "3.0.0-RC4" % "test"
     )
   )
+
