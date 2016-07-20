@@ -1,5 +1,5 @@
-organization := "me.jeffmay"
-organizationName := "Jeff May"
+organization := "com.rallyhealth"
+organizationName := "Rally Health"
 
 // set the scala version on the root project
 scalaVersion := "2.11.7"
