@@ -67,9 +67,9 @@ class AsyncResultExtractorsSpec extends fixture.AsyncFreeSpec
     }
   }
 
-  protected def testSubject(methodName: String) = s"play25.AsyncResultExtrators.$methodName"
+  protected def method(name: String) = s"play25.AsyncResultExtrators.$name"
 
-  s"${testSubject(methodName = "status")} should return the status code" in { fixture =>
+  s"${method("status")} should return the status code" in { fixture =>
     import fixture.extractors._
     val ctrl = new TestEchoController
     val request = FakeRequest("POST", "/test/status")
@@ -82,7 +82,7 @@ class AsyncResultExtractorsSpec extends fixture.AsyncFreeSpec
     }
   }
 
-  s"${testSubject(methodName = "contentType")} should extract the expected content type" in { fixture =>
+  s"${method("contentType")} should extract the expected content type" in { fixture =>
     import fixture.extractors._
     val ctrl = new TestEchoController
     val testJson = Json.obj()
@@ -96,7 +96,7 @@ class AsyncResultExtractorsSpec extends fixture.AsyncFreeSpec
     }
   }
 
-  s"${testSubject(methodName = "charset")} should extract the expected charset" in { fixture =>
+  s"${method("charset")} should extract the expected charset" in { fixture =>
     import fixture.extractors._
     val ctrl = new TestEchoController
     val testString = "test"
@@ -110,7 +110,7 @@ class AsyncResultExtractorsSpec extends fixture.AsyncFreeSpec
     }
   }
 
-  s"${testSubject(methodName = "contentAsString")} should extract the expected text" in { fixture =>
+  s"${method("contentAsString")} should extract the expected text" in { fixture =>
     import fixture.extractors._
     val ctrl = new TestEchoController
     val testString = "test"
@@ -125,7 +125,7 @@ class AsyncResultExtractorsSpec extends fixture.AsyncFreeSpec
     }
   }
 
-  s"${testSubject(methodName = "contentAsJson")} should extract the expected json" in { fixture =>
+  s"${method("contentAsJson")} should extract the expected json" in { fixture =>
     import fixture.extractors._
     val ctrl = new TestEchoController
     val testJson = Json.obj("expected" -> "json")
@@ -140,7 +140,7 @@ class AsyncResultExtractorsSpec extends fixture.AsyncFreeSpec
     }
   }
 
-  s"${testSubject(methodName = "header")} should extract the expected header" in { fixture =>
+  s"${method("header")} should extract the expected header" in { fixture =>
     import fixture.extractors._
     val ctrl = new TestEchoController
     val expectedHeaderName = "expected"
@@ -158,7 +158,7 @@ class AsyncResultExtractorsSpec extends fixture.AsyncFreeSpec
     }
   }
 
-  s"${testSubject(methodName = "cookies")} should extract the expected cookie" in { fixture =>
+  s"${method("cookies")} should extract the expected cookie" in { fixture =>
     import fixture.extractors._
     val ctrl = new TestEchoController
     val expectedCookie = Cookie("expected", "cookie")
@@ -175,7 +175,7 @@ class AsyncResultExtractorsSpec extends fixture.AsyncFreeSpec
     }
   }
 
-  s"${testSubject(methodName = "session")} should extract the expected session data" in { fixture =>
+  s"${method("session")} should extract the expected session data" in { fixture =>
     import fixture.extractors._
     val ctrl = new TestEchoController
     val expectedSession = Session(Map("k1" -> "v1", "k2" -> "v2"))
@@ -189,7 +189,7 @@ class AsyncResultExtractorsSpec extends fixture.AsyncFreeSpec
     }
   }
 
-  s"${testSubject(methodName = "flash")} should extract the expected flash data" in { fixture =>
+  s"${method("flash")} should extract the expected flash data" in { fixture =>
     import fixture.extractors._
     val ctrl = new TestEchoController
     val expectedFlash = Flash(Map("k1" -> "v1", "k2" -> "v2"))
@@ -203,7 +203,7 @@ class AsyncResultExtractorsSpec extends fixture.AsyncFreeSpec
     }
   }
 
-  s"${testSubject(methodName = "redirectLocation")} should extract the expected redirect url from 301" in { fixture =>
+  s"${method("redirectLocation")} should extract the expected redirect url from 301" in { fixture =>
     import fixture.extractors._
     val ctrl = new TestEchoController
     val redirectUrl = "test redirect"
@@ -220,7 +220,7 @@ class AsyncResultExtractorsSpec extends fixture.AsyncFreeSpec
     }
   }
 
-  s"${testSubject(methodName = "redirectLocation")} should extract the expected redirect url from 302" in { fixture =>
+  s"${method("redirectLocation")} should extract the expected redirect url from 302" in { fixture =>
     import fixture.extractors._
     val ctrl = new TestEchoController
     val redirectUrl = "test redirect"
@@ -237,7 +237,7 @@ class AsyncResultExtractorsSpec extends fixture.AsyncFreeSpec
     }
   }
 
-  s"${testSubject(methodName = "redirectLocation")} should extract the expected redirect url from 303" in { fixture =>
+  s"${method("redirectLocation")} should extract the expected redirect url from 303" in { fixture =>
     import fixture.extractors._
     val ctrl = new TestEchoController
     val redirectUrl = "test redirect"
@@ -254,7 +254,7 @@ class AsyncResultExtractorsSpec extends fixture.AsyncFreeSpec
     }
   }
 
-  s"${testSubject(methodName = "redirectLocation")} should extract the expected redirect url from 307" in { fixture =>
+  s"${method("redirectLocation")} should extract the expected redirect url from 307" in { fixture =>
     import fixture.extractors._
     val ctrl = new TestEchoController
     val redirectUrl = "test redirect"
@@ -271,7 +271,7 @@ class AsyncResultExtractorsSpec extends fixture.AsyncFreeSpec
     }
   }
 
-  s"${testSubject(methodName = "redirectLocation")} should NOT extract a redirect url from a 400" in { fixture =>
+  s"${method("redirectLocation")} should NOT extract a redirect url from a 400" in { fixture =>
     import fixture.extractors._
     val ctrl = new TestEchoController
     val redirectUrl = "test redirect"
