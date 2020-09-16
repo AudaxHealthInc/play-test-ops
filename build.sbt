@@ -73,5 +73,5 @@ lazy val `play25-core` = (project in file("play25-core"))
   .settings(coreCommonSettings)
   .settings(
     name := "play25-test-ops-core",
-    playVersion := "2.5.12"
+    playVersion := "2.5.19"
   )
