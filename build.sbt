@@ -58,7 +58,7 @@ val coreCommonSettings = commonSettings ++ Seq(
   libraryDependencies ++= Seq(
     "com.typesafe.play" %% "play" % playVersion.value,
     "com.typesafe.play" %% "play-test" % playVersion.value % "test",
-    "org.scalatest" %% "scalatest" % "3.0.0" % Test
+    "org.scalatest" %% "scalatest" % "3.0.9" % Test
   )
 )
 
