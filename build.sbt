@@ -4,7 +4,7 @@ val commonRootSettings = Seq(
   organizationName := "Rally Health",
   
   // set the scala version on the root project
-  scalaVersion := "2.11.8",
+  scalaVersion := "2.11.12",
 
   // fail the build if the coverage drops below the minimum
   coverageFailOnMinimum := true,
